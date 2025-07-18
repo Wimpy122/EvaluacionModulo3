@@ -2,31 +2,7 @@ flag = True
 
 Tareas = []
 
-Estado_Tareas = {}
-
-
-
-while flag:
-    print("--- Gestor de Tareas ---\n 1. Agregar tarea \n2. Ver tareas \n3. Marcar tarea como completada \n4. Eliminar tarea \n5. Salir")
-    opcion = input("Elige una opcion: ")
-    if opcion == "1":
-
-        
-    elif opcion == "2":
-
-    
-    elif opcion == "3":
-
-
-    elif opcion == "4":
-
-
-    elif opcion == "5":
-        flag = False
-
-    else:
-        print("opcion no valida")
-
+Estado_Tareas = {"Evaluacion 1": "Completada"}
 
 def AgregarTarea():
 
@@ -44,5 +20,40 @@ def AgregarTarea():
             Estado_Tareas[nombre] = "Completada"
         else:
             print("Opcion no valida.")
+            Tareas.remove(nombre)
 
-            
+
+def VerTareas(lista):
+    for tarea, estado in lista.items():
+        print(f"\n{tarea} - {estado}")
+
+def Modificar_Estado(lista):
+    tarea = input("Ingrese nombre tarea: ")
+    for diccionario in lista:   
+        if tarea in lista:
+            lista[tarea] = "Completada"
+        else:
+            print("Nombre no Encontrado")
+
+while flag:
+    print("\n--- Gestor de Tareas ---\n1. Agregar tarea \n2. Ver tareas \n3. Marcar tarea como completada \n4. Eliminar tarea \n5. Salir")
+    opcion = input("Elige una opcion: ")
+    if opcion == "1":
+        AgregarTarea()
+        
+    elif opcion == "2":
+        VerTareas(Estado_Tareas)
+    
+    elif opcion == "3":
+        Modificar_Estado(Estado_Tareas)
+
+    elif opcion == "4":
+        a
+
+    elif opcion == "5":
+        flag = False
+
+    else:
+        print("opcion no valida")
+
+
