@@ -6,6 +6,7 @@ Estado_Tareas = {"Evaluacion 1": "Completada"}
 
 def AgregarTarea():
 
+    
     nombre = input("ingrese el nombre de la tarea: ")
     if nombre not in Tareas:
         Tareas.append(nombre)
