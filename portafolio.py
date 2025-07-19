@@ -1,11 +1,15 @@
 flag = True
 
+Tareas = ["Evaluacion 1"]
 
 Estado_Tareas = {"Evaluacion 1": "Completada"}
 
 def AgregarTarea():
 
     nombre = input("ingrese el nombre de la tarea: ")
+    if nombre not in Tareas:
+        Tareas.append(nombre)
+
     print("1. Pendiente \n2. Completada")
     Estado = input("En que estado se encuentra la tarea?: ")
 
@@ -31,13 +35,18 @@ def Modificar_Estado(lista):
         else:
             print("Nombre no Encontrado")
 
-def Eliminar_Tarea(lista):
+def Eliminar_Tarea(Estado, Nombre):
     tarea = input("Ingrese nombre tarea: ")
-    for diccionario in lista:   
-        if tarea in lista:
-            del lista[tarea]
-        else:
-            print("Nombre no Encontrado")
+    if tarea in Estado:
+            del Estado[tarea]
+    else:
+        print("Nombre no Encontrado")
+    
+    if tarea in Nombre:
+        Nombre.remove(tarea)
+    else:
+        print("Nombre no Encontrado")
+
 
 while flag:
     print("\n--- Gestor de Tareas ---\n1. Agregar tarea \n2. Ver tareas \n3. Marcar tarea como completada \n4. Eliminar tarea \n5. Salir")
@@ -52,11 +61,11 @@ while flag:
         Modificar_Estado(Estado_Tareas)
 
     elif opcion == "4":
-        Eliminar_Tarea(Estado_Tareas)
+        Eliminar_Tarea(Estado_Tareas, Tareas)
 
     elif opcion == "5":
         flag = False
-
+        
     else:
         print("opcion no valida")
 
